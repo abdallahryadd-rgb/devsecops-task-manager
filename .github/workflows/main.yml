@@ -29,6 +29,6 @@ jobs:
         with:
           context: ./frontend
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/task-manager-frontend:latestgit add .
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/task-manager-frontend:latest
           
          
