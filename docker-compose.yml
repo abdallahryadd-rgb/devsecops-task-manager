@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: secure-task-manager-db
+    environment:
+      POSTGRES_DB: task_manager
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres123
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./backend/database/schema.sql:/docker-entrypoint-initdb.d/1-schema.sql
+      - ./backend/database/seed.sql:/docker-entrypoint-initdb.d/2-seed.sql
+    restart: unless-stopped
+
+  backend:
+    build: ./backend
+    container_name: task_backend
+    ports:
+      - "5000:5000"
+    environment:
+      - DB_HOST=postgres
+      - DB_USER=postgres
+      - DB_PASSWORD=postgres123
+      - DB_NAME=task_manager
+      - DB_PORT=5432
+    depends_on:
+      - postgres
+
+  frontend:
+    build: ./frontend
+    container_name: task_frontend
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+
+volumes:
+  pgdata:
