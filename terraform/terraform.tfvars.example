@@ -1,0 +1,20 @@
+environment         = "dev"
+app_namespace       = "secure-task-manager"
+server_ip           = "192.168.56.10"
+ssh_user            = "ubuntu"
+ssh_port            = 22
+dockerhub_username  = "your-dockerhub-username"
+backend_image_name  = "task-manager-backend"
+frontend_image_name = "task-manager-frontend"
+image_tag           = "latest"
+frontend_port       = 5173
+backend_port        = 5000
+database_port       = 5432
+database_name       = "task_manager"
+database_user       = "postgres"
+
+# Optional. Leave commented to use ssh-agent/default SSH behavior.
+# ssh_private_key_path = "C:/Users/Abduallah/.ssh/id_rsa"
+
+# Optional. Defaults to server_ip when not set.
+# app_host = "task-manager.local"

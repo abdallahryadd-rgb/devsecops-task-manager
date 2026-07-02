@@ -8,3 +8,18 @@ coverage/
 .DS_Store
 .vscode/
 .idea/
+
+# Terraform local state, secrets, and generated files
+**/.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+*.tfvars.json
+!*.tfvars.example
+.terraform.lock.hcl
+crash.log
+crash.*.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
