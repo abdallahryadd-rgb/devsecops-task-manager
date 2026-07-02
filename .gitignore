@@ -22,4 +22,18 @@ crash.*.log
 override.tf
 override.tf.json
 *_override.tf
-*_override.tf.json
+
+# Presentation and PDF graduation project files
+*.pdf
+*.pptx
+*.ppt
+*.odp
+
+# Temporary/unrelated root files
+/index.html
+/project_documentation.html
+/script.js
+/style.css
+/my-firstfile.txt
+/file2.txt
+/thirdfile
